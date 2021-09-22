@@ -49,7 +49,7 @@ const Input = styled.input`
   width: 401px;
   margin-bottom: 8px;
   padding-left: 26px;
-  font-size: 24px;
+  font-size: 18px;
   background: #ffffff;
   border: 1px solid #dcdcdc;
   box-sizing: border-box;
@@ -59,14 +59,19 @@ const Input = styled.input`
     height: 93px;
     width: 557px;
     padding-left: 46px;
+    font-size: 24px;
   }
 
   ::placeholder,
   ::-webkit-input-placeholder {
     font-family: Apercu Arabic Pro;
     font-weight: 400;
-    font-size: 18px;
-    color: rgba(45, 45, 45, 1);
+    font-size: 14px;
+    color: #2d2d2d;
+
+    @media ${device.desktop} {
+      font-size: 18px;
+    }
   }
 `;
 
@@ -75,25 +80,31 @@ const StyledTextarea = styled.textarea`
   width: 401px;
   margin-bottom: 23px;
   padding-left: 26px;
-  font-size: 24px;
+  padding-top: 16px;
+  font-size: 18px;
   background: #ffffff;
   border: 1px solid #dcdcdc;
   box-sizing: border-box;
   border-radius: 10px;
+  resize: none;
 
   @media ${device.desktop} {
     height: 189px;
     width: 557px;
     padding-left: 46px;
     padding-top: 31px;
+    font-size: 24px;
   }
 
   ::placeholder,
   ::-webkit-input-placeholder {
     font-family: Apercu Arabic Pro;
     font-weight: 400;
-    font-size: 18px;
-    color: rgba(45, 45, 45, 1);
+    font-size: 14px;
+    color: #2d2d2d;
+    @media ${device.desktop} {
+      font-size: 18px;
+    }
   }
 `;
 
