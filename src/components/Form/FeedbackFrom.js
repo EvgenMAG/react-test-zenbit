@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { render } from 'react-dom';
 import styled from 'styled-components';
 import { device } from '../../device/device.js';
+import addFeedback from '../../api-services/apiServices.js';
 
 const CardWrapper = styled.div`
   position: absolute;
@@ -131,6 +132,7 @@ const FeedbackFrom = () => {
     email: '',
     comment: '',
   });
+  const { name, email, comment } = feedback;
 
   const onInputChange = e => {
     const { name, value } = e.target;
@@ -151,12 +153,19 @@ const FeedbackFrom = () => {
   const submitHandler = e => {
     e.preventDefault();
     // Here we make fetch Post request to server
+    addFeedback({ name, email, comment });
     reset();
   };
 
   const reset = () => {
     setFeedback({ name: '', email: '', comment: '' });
   };
+
+  let activateSubmitBtn = true;
+
+  if (name && email && comment) {
+    activateSubmitBtn = false;
+  }
 
   return (
     <>
@@ -186,7 +195,9 @@ const FeedbackFrom = () => {
               placeholder={'Your message*'}
             />
           </FormContiner>
-          <Button type="submit">Send message</Button>
+          <Button type="submit" disabled={activateSubmitBtn}>
+            Send message
+          </Button>
         </Form>
       </CardWrapper>
     </>
